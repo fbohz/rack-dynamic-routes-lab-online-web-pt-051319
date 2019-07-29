@@ -3,7 +3,7 @@ class Application
     resp = Rack::Response.new 
     req = Rack::Request.new(env)
     
-    @@items = []
+    @@items = [Item.new("Mango", 2), Item.new("Pear", 3)]
     
     if req.path.match(/items/)
       
