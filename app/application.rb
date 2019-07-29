@@ -1,11 +1,12 @@
 require 'pry'
 
 class Application 
+  @@items = [Item.new("Mango", 2), Item.new("Pear", 3)]
   def call(env)
     resp = Rack::Response.new 
     req = Rack::Request.new(env)
     
-    @@items = [Item.new("Mango", 2.10), Item.new("Pear", 3.02)]
+    
     
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
