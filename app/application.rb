@@ -1,23 +1,29 @@
-class Application
+require 'pry'
 
-  @@items = [Item.new("Apples",5.23), Item.new("Oranges",2.43)]
+class Application 
   def call(env)
-    resp = Rack::Response.new
+    resp = Rack::Response.new 
     req = Rack::Request.new(env)
-
+    
+    @@items = [Item.new("Mango", 2.10), Item.new("Pear", 3.02)]
+    
     if req.path.match(/items/)
       item_name = req.path.split("/items/").last
-      if item =@@items.find{|i| i.name == item_name}
-        resp.write item.price
-      else 
+      #item_match = @@items.detect{|i| i.name == item_name}
+       if item_match = @@items.detect{|i| i.name == item_name}
+        resp.write item_match.price
+       else
         resp.status = 400
         resp.write "Item not found"
-      end
-    else
-      resp.status=404
+       end 
+      
+    else 
+      resp.status = 404
       resp.write "Route not found"
-    end
+    end 
     resp.finish
-  end
+  end 
+  
 
-end
+ 
+end 
