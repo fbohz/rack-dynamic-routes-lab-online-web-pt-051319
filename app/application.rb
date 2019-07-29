@@ -5,7 +5,10 @@ class Application
     
     @@items = [Item.new("Mango", 2), Item.new("Pear", 3)]
     
-    if req.path.match(/items/)
+    if req.path == "items"
+      
+      
+    else 
       
       
     end 
