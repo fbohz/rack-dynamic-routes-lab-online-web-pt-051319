@@ -10,7 +10,12 @@ class Application
     if req.path.include?("items/")
       item_name = req.path.split("/items/").last
       item_match = @@items.detect{|s| s.name == item_name}
-      
+            if item_match
+        return item_match.price
+      else
+        resp.status = 404
+        return "Item not found"
+    end 
       resp.write item_check(item_match)
     else 
       resp.write "Route not found"
@@ -19,12 +24,7 @@ class Application
   end 
   
   def item_check(item_match)
-    if item_match
-      return item_match.price
-    else
-      resp.status = 404
-      return "Item not found"
-  end 
+
  end 
  
 end 
