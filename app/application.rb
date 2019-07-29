@@ -7,7 +7,7 @@ class Application
     
     @@items = [Item.new("Mango", 2), Item.new("Pear", 3)]
     
-    if req.path == "items"
+    if req.path == "items/"
       binding.pry
       
     else 
