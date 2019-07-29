@@ -9,7 +9,7 @@ class Application
     
     if req.path.include?("items/")
       binding.pry
-      item_name = 
+      item_name = req.path.split("/items/").last
       
     else 
       resp.write "Route not found"
