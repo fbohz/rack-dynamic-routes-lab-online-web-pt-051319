@@ -10,7 +10,7 @@ class Application
     if req.path.include?("items/")
       binding.pry
       item_name = req.path.split("/items/").last
-      
+      tem_match = @@items.detect{|s| s.name  == item_name}
     else 
       resp.write "Route not found"
       resp.status = 404
