@@ -7,7 +7,7 @@ class Application
     
     @@items = [Item.new("Mango", 2), Item.new("Pear", 3)]
     
-    if req.path.include?("items/")
+    if req.path.match(/items/)
       item_name = req.path.split("/items/").last
       #item_match = @@items.detect{|i| i.name == item_name}
        if item_match = @@items.detect{|i| i.name == item_name}
