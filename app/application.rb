@@ -9,8 +9,8 @@ class Application
     
     if req.path.include?("items/")
       item_name = req.path.split("/items/").last
-      item_match = @@items.detect{|i| i.name == item_name}
-       if item_match
+      #item_match = @@items.detect{|i| i.name == item_name}
+       if item_match = @@items.detect{|i| i.name == item_name}
         resp.write item_match.price
         binding.pry
        else
