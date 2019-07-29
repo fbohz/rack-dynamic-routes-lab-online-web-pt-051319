@@ -22,6 +22,7 @@ class Application
     if item_match
       return item_match.price
     else
+      resp.status = 404
       return "Item not found"
   end 
  end 
