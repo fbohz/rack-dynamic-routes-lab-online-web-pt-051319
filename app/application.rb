@@ -11,12 +11,18 @@ class Application
       binding.pry
       item_name = req.path.split("/items/").last
       item_match = @@items.detect{|s| s.name == item_name}
+      
+      resp.write item_check(item_match)
     else 
       resp.write "Route not found"
       resp.status = 404
     end 
   end 
   
-  def 
+  def item_check(item_match)
+    if item_match
+      return item_match.price
+    else
+      
   
 end 
