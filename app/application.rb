@@ -23,6 +23,7 @@ class Application
     if item_match
       return item_match.price
     else
-      
+      return "Item not found"
+  end 
   
 end 
