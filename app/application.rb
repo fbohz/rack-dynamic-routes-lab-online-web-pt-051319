@@ -13,7 +13,7 @@ class Application
        if item_match
         resp.write item_match.price
        else
-        resp.status = 404
+        resp.status = 400
         resp.write "Item not found"
        end 
       
