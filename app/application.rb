@@ -12,7 +12,6 @@ class Application
       #item_match = @@items.detect{|i| i.name == item_name}
        if item_match = @@items.detect{|i| i.name == item_name}
         resp.write item_match.price
-        binding.pry
        else
         resp.status = 400
         resp.write "Item not found"
