@@ -8,7 +8,6 @@ class Application
     @@items = [Item.new("Mango", 2), Item.new("Pear", 3)]
     
     if req.path.include?("items/")
-      binding.pry
       item_name = req.path.split("/items/").last
       item_match = @@items.detect{|s| s.name == item_name}
       
@@ -25,5 +24,6 @@ class Application
     else
       return "Item not found"
   end 
-  
+ end 
+ 
 end 
